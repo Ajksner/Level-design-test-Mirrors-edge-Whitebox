@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/Scenes/Mirrors_Edge_Level_Design_Test_FA_001.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
