@@ -59,14 +59,27 @@
     <UnityVersion>2022.3.47f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\Admin\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Admin\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.1\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Windows\BoxBuilderWindow.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Editors\StandardBoxBuildingEditor.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Meshes\Editor\MeshExporter.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Editors\StandardColumnEditor.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Editors\StandardFlatBoxRoofEditor.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Editor\PauseStateHandler.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Editors\StandardLineEditor.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Windows\LineBuilderWindow.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\Editor\ReadOnlyPropertyDrawer.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Windows\ElementBuilderWindow.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Windows\ColumnBuilderWindow.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Decorators\Editor\MaterialRandomizerItemDrawer.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\EditorMenu.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\Editor\KinematicCharacterMotorEditor.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Windows\MeshCombinerWindow.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\Editor\Editors\StandardElementEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
