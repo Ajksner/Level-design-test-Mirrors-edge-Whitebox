@@ -68,8 +68,8 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxRoofs\StandardFlatBox\RoofParameters.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\ICharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Columns\Standard\ColumnGenerationSettings.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Core\PhysicsMover.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\Standard\LineGenerationSettings.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Core\PhysicsMover.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Elements\Standard\ElementItemsCollection.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IValidable.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\FrameratePanel.cs" />
@@ -89,6 +89,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Drafts\BoxDraft.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\DummyBoxBuilder.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\JumpPad.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxRoofs\StandardFlatBoxRoof.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Demo\Scripts\DemoUI.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\16- FramePerfect Rotation\Scripts\MyPlayer.cs" />
@@ -124,8 +125,8 @@
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\BuildManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Teleporter.cs" />
-    <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\CapItem.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IRequired.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\CapItem.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\SideGenerationSettings.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Elements\Standard\ElementGenerationSettings.cs" />
@@ -152,14 +153,14 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExampleCharacterCamera.cs" />
-    <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\StandardBoxBuilding.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IRandomizable.cs" />
+    <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\StandardBoxBuilding.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\SideItemsCollection.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlanetManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Demo\Scripts\CameraController.cs" />
-    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxRoofs\StandardFlatBox\RoofGenerationSettings.cs" />
+    <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\CapGenerationSettings.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Drafts\LineDraft.cs" />

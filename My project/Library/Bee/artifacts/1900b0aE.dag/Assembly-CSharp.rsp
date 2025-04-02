@@ -466,6 +466,7 @@
 "Assets/ModularBuildingsFramework/Scripts/Misc/IRandomizable.cs"
 "Assets/ModularBuildingsFramework/Scripts/Misc/IRequired.cs"
 "Assets/ModularBuildingsFramework/Scripts/Misc/IValidable.cs"
+"Assets/Scripts/JumpPad.cs"
 -langversion:9.0
 /deterministic
 /optimize+
