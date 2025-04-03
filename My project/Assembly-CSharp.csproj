@@ -68,6 +68,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxRoofs\StandardFlatBox\RoofParameters.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\ICharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Columns\Standard\ColumnGenerationSettings.cs" />
+    <Compile Include="Assets\_Barking_Dog\Common Scripts\MouseLook.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\Standard\LineGenerationSettings.cs" />
     <Compile Include="Assets\KinematicCharacterController\Core\PhysicsMover.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Elements\Standard\ElementItemsCollection.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\IElementBuilder.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\14- Climbing Ladders\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\ILength.cs" />
+    <Compile Include="Assets\Scripts\SmoothLadderMove.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Demo\Scripts\Demo.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\6- Crouching\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\Standard\LineItemsCollection.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\9- Custom collision filtering\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PrefabLauncher.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Elements\Standard\ElementItem.cs" />
+    <Compile Include="Assets\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Drafts\ColumnDraft.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Elements\DummyElement.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Decorators\MaterialRandomizer.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\SideItem.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Core\Utils.cs" />
+    <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\DummyLine.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\StandardLine.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Drafts\ElementDraft.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\1- Player Camera Character Setup\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\BuildManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\2- Basic Movement and Gravity\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\ColorChanger.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\Teleporter.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IRequired.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\CapItem.cs" />
@@ -153,6 +158,7 @@
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\a- Simple Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\ExampleCharacter\Scripts\ExampleCharacterCamera.cs" />
+    <Compile Include="Assets\Scripts\LadderPlatform.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IRandomizable.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\StandardBoxBuilding.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\SideItemsCollection.cs" />
@@ -175,6 +181,10 @@
     <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterSystem.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyMovingPlatform.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Jeremy\Docs\MaleCharacterAnimation.txt" />
+    <None Include="Assets\_Barking_Dog\Readme_Please.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

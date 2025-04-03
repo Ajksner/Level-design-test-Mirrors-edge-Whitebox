@@ -466,7 +466,13 @@
 "Assets/ModularBuildingsFramework/Scripts/Misc/IRandomizable.cs"
 "Assets/ModularBuildingsFramework/Scripts/Misc/IRequired.cs"
 "Assets/ModularBuildingsFramework/Scripts/Misc/IValidable.cs"
+"Assets/Scripts/ColorChanger.cs"
+"Assets/Scripts/DoorController.cs"
 "Assets/Scripts/JumpPad.cs"
+"Assets/Scripts/LadderPlatform.cs"
+"Assets/Scripts/SmoothLadderMove.cs"
+"Assets/_Barking_Dog/Common Scripts/MouseLook.cs"
+"Assets/_Barking_Dog/Common Scripts/Turn_Move.cs"
 -langversion:9.0
 /deterministic
 /optimize+
