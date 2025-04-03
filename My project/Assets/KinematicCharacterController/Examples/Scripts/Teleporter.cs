@@ -9,7 +9,8 @@ namespace KinematicCharacterController.Examples
     {
         public Teleporter TeleportTo;
         public float liftHeight = 2f; // Výška, o kterou se hráč posune nahoru
-        public float liftDuration = 1f; // Celková doba pohybu (ale teď poleze nahoru jen polovinu času)
+        public float forwardOffset = 1f; // Posunutí dopředu
+        public float totalMoveDuration = 1f; // Celková doba přesunu (nahoru + dopředu)
 
         public UnityAction<ExampleCharacterController> OnCharacterTeleport;
         public bool isBeingTeleportedTo { get; set; }
@@ -31,29 +32,46 @@ namespace KinematicCharacterController.Examples
             isBeingTeleportedTo = true;
             Vector3 startPosition = cc.transform.position;
             Vector3 liftPosition = startPosition + Vector3.up * liftHeight;
-            float elapsedTime = 0f;
-            float halfDuration = liftDuration / 2f; // Polovina původního času
+            
+            Vector3 finalPosition;
+            if (TeleportTo != null)
+            {
+                finalPosition = TeleportTo.transform.position + TeleportTo.transform.forward * forwardOffset;
+            }
+            else
+            {
+                finalPosition = liftPosition + cc.transform.forward * forwardOffset;
+            }
 
-            // Plynulý pohyb nahoru (za poloviční dobu)
+            float halfDuration = totalMoveDuration / 2f; // Doba pro každou část (nahoru i dopředu)
+
+            // Plynulý pohyb nahoru (polovina času)
+            float elapsedTime = 0f;
             while (elapsedTime < halfDuration)
             {
                 cc.Motor.SetPosition(Vector3.Lerp(startPosition, liftPosition, elapsedTime / halfDuration));
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
-            // Ujistíme se, že hráč je na správné pozici
             cc.Motor.SetPosition(liftPosition);
 
-            // Teleportace na cílovou lokaci
-            cc.Motor.SetPositionAndRotation(TeleportTo.transform.position, TeleportTo.transform.rotation);
-
-            if (OnCharacterTeleport != null)
+            if (TeleportTo != null)
             {
-                OnCharacterTeleport(cc);
+                cc.Motor.SetPositionAndRotation(TeleportTo.transform.position, TeleportTo.transform.rotation);
+                TeleportTo.isBeingTeleportedTo = true;
+                OnCharacterTeleport?.Invoke(cc);
             }
 
-            TeleportTo.isBeingTeleportedTo = true;
+            // Plynulý pohyb dopředu (druhá polovina času)
+            elapsedTime = 0f;
+            while (elapsedTime < halfDuration)
+            {
+                cc.Motor.SetPosition(Vector3.Lerp(cc.transform.position, finalPosition, elapsedTime / halfDuration));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            cc.Motor.SetPosition(finalPosition);
+
             isBeingTeleportedTo = false;
         }
     }
