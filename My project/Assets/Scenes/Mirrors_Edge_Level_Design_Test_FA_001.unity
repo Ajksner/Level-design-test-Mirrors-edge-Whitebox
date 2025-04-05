@@ -82057,6 +82057,8 @@ MonoBehaviour:
   AirAccelerationSpeed: 16
   Drag: 1
   AllowJumpingWhenSliding: 1
+  AllowDoubleJump: 0
+  AllowWallJump: 1
   JumpUpSpeed: 12
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1

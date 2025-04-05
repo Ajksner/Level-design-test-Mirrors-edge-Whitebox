@@ -57,6 +57,8 @@ namespace KinematicCharacterController.Examples
 
         [Header("Jumping")]
         public bool AllowJumpingWhenSliding = false;
+        public bool AllowDoubleJump = false;
+        public bool AllowWallJump = false;
         public float JumpUpSpeed = 10f;
         public float JumpScalableForwardSpeed = 10f;
         public float JumpPreGroundingGraceTime = 0f;
@@ -85,6 +87,9 @@ namespace KinematicCharacterController.Examples
         private Vector3 _internalVelocityAdd = Vector3.zero;
         private bool _shouldBeCrouching = false;
         private bool _isCrouching = false;
+        private bool _doubleJumpConsumed = false;
+        private bool _canWallJump = false;
+        private Vector3 _wallJumpNormal;
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
@@ -354,28 +359,54 @@ namespace KinematicCharacterController.Examples
                         _timeSinceJumpRequested += deltaTime;
                         if (_jumpRequested)
                         {
+                            // Handle double jump
+                            if (AllowDoubleJump)
+                            {
+                                if (_jumpConsumed && !_doubleJumpConsumed && (AllowJumpingWhenSliding ? !Motor.GroundingStatus.FoundAnyGround : !Motor.GroundingStatus.IsStableOnGround))
+                                {
+                                    Motor.ForceUnground(0.1f);
+
+                                    // Add to the return velocity and reset jump state
+                                    currentVelocity += (Motor.CharacterUp * JumpUpSpeed) - Vector3.Project(currentVelocity, Motor.CharacterUp);
+                                    currentVelocity += (_moveInputVector * JumpScalableForwardSpeed);
+                                    _jumpRequested = false;
+                                    _doubleJumpConsumed = true;
+                                    _jumpedThisFrame = true;
+                                }
+                            }
+
                             // See if we actually are allowed to jump
-                            if (!_jumpConsumed && ((AllowJumpingWhenSliding ? Motor.GroundingStatus.FoundAnyGround : Motor.GroundingStatus.IsStableOnGround) || _timeSinceLastAbleToJump <= JumpPostGroundingGraceTime))
+                            if (_canWallJump ||
+                                (!_jumpConsumed && ((AllowJumpingWhenSliding ? Motor.GroundingStatus.FoundAnyGround : Motor.GroundingStatus.IsStableOnGround) || _timeSinceLastAbleToJump <= JumpPostGroundingGraceTime)))
                             {
                                 // Calculate jump direction before ungrounding
                                 Vector3 jumpDirection = Motor.CharacterUp;
-                                if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
+                                if (_canWallJump)
+                                {
+                                    jumpDirection = _wallJumpNormal;
+                                }
+                                else if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
                                 {
                                     jumpDirection = Motor.GroundingStatus.GroundNormal;
                                 }
 
-                                // Makes the character skip ground probing/snapping on its next update. 
-                                // If this line weren't here, the character would remain snapped to the ground when trying to jump. Try commenting this line out and see.
-                                Motor.ForceUnground();
+                                // Makes the character skip ground probing/snapping on its next update.
+                                Motor.ForceUnground(0.1f);
 
                                 // Add to the return velocity and reset jump state
                                 currentVelocity += (jumpDirection * JumpUpSpeed) - Vector3.Project(currentVelocity, Motor.CharacterUp);
-                                currentVelocity += (_moveInputVector * JumpScalableForwardSpeed);
+                                if (!_canWallJump) // Don't apply forward speed during wall jump
+                                {
+                                    currentVelocity += (_moveInputVector * JumpScalableForwardSpeed);
+                                }
                                 _jumpRequested = false;
                                 _jumpConsumed = true;
                                 _jumpedThisFrame = true;
                             }
                         }
+
+                        // Reset wall jump
+                        _canWallJump = false;
 
                         // Take into account additive velocity
                         if (_internalVelocityAdd.sqrMagnitude > 0f)
@@ -411,6 +442,7 @@ namespace KinematicCharacterController.Examples
                                 // If we're on a ground surface, reset jumping values
                                 if (!_jumpedThisFrame)
                                 {
+                                    _doubleJumpConsumed = false;
                                     _jumpConsumed = false;
                                 }
                                 _timeSinceLastAbleToJump = 0f;
@@ -483,6 +515,12 @@ namespace KinematicCharacterController.Examples
 
         public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
         {
+            // We can wall jump only if we are not stable on ground and are moving against an obstruction
+            if (AllowWallJump && !Motor.GroundingStatus.IsStableOnGround && !hitStabilityReport.IsStable)
+            {
+                _canWallJump = true;
+                _wallJumpNormal = hitNormal;
+            }
         }
 
         public void AddVelocity(Vector3 velocity)
