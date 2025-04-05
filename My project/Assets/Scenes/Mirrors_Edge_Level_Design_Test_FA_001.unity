@@ -82063,6 +82063,8 @@ MonoBehaviour:
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1
   JumpPostGroundingGraceTime: 0.1
+  WallJumpSidewaysForce: 1
+  WallJumpSidewaysDuration: 0.3
   IgnoredColliders:
   - {fileID: 0}
   - {fileID: 0}

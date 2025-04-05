@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platforms:
   - {fileID: 4089241668496325006}
-  speed: 3
+  speed: 6
 --- !u!1 &3905097412212110567
 GameObject:
   m_ObjectHideFlags: 0

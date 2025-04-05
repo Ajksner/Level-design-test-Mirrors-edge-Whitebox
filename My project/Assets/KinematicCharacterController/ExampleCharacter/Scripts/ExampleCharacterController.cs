@@ -64,6 +64,10 @@ namespace KinematicCharacterController.Examples
         public float JumpPreGroundingGraceTime = 0f;
         public float JumpPostGroundingGraceTime = 0f;
 
+        [Header("Wall Jump")]
+        public float WallJumpSidewaysForce = 8f;
+        public float WallJumpSidewaysDuration = 0.3f;
+
         [Header("Misc")]
         public List<Collider> IgnoredColliders = new List<Collider>();
         public BonusOrientationMethod BonusOrientationMethod = BonusOrientationMethod.None;
@@ -90,6 +94,9 @@ namespace KinematicCharacterController.Examples
         private bool _doubleJumpConsumed = false;
         private bool _canWallJump = false;
         private Vector3 _wallJumpNormal;
+        private Vector3 _wallJumpDirection = Vector3.zero;
+        private float _wallJumpSidewaysTimer = 0f;
+        private bool _isWallJumping = false;
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
@@ -384,6 +391,10 @@ namespace KinematicCharacterController.Examples
                                 if (_canWallJump)
                                 {
                                     jumpDirection = _wallJumpNormal;
+                                    
+                                    // Start wall jump sideways movement
+                                    _isWallJumping = true;
+                                    _wallJumpSidewaysTimer = WallJumpSidewaysDuration;
                                 }
                                 else if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
                                 {
@@ -414,6 +425,20 @@ namespace KinematicCharacterController.Examples
                             currentVelocity += _internalVelocityAdd;
                             _internalVelocityAdd = Vector3.zero;
                         }
+                        
+                        // Apply sideways force for wall jumps
+                        if (_isWallJumping && _wallJumpSidewaysTimer > 0)
+                        {
+                            // Apply sideways force based on the wall's orientation
+                            currentVelocity += _wallJumpDirection * WallJumpSidewaysForce;
+                            _wallJumpSidewaysTimer -= deltaTime;
+                            
+                            if (_wallJumpSidewaysTimer <= 0)
+                            {
+                                _isWallJumping = false;
+                            }
+                        }
+                        
                         break;
                     }
             }
@@ -446,6 +471,9 @@ namespace KinematicCharacterController.Examples
                                     _jumpConsumed = false;
                                 }
                                 _timeSinceLastAbleToJump = 0f;
+                                
+                                // Reset wall jumping when landing
+                                _isWallJumping = false;
                             }
                             else
                             {
@@ -520,6 +548,16 @@ namespace KinematicCharacterController.Examples
             {
                 _canWallJump = true;
                 _wallJumpNormal = hitNormal;
+                
+                // Calculate the sideways direction based on the wall normal and forward direction
+                Vector3 forwardOnWallPlane = Vector3.ProjectOnPlane(Motor.CharacterForward, hitNormal).normalized;
+                _wallJumpDirection = Vector3.Cross(hitNormal, Vector3.up).normalized;
+                
+                // Make sure the direction is correct based on our approach angle
+                if (Vector3.Dot(_wallJumpDirection, forwardOnWallPlane) < 0)
+                {
+                    _wallJumpDirection = -_wallJumpDirection;
+                }
             }
         }
 
