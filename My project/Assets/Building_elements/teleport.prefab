@@ -42,7 +42,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3408675921761143415}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -74,9 +74,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeleportTo: {fileID: 0}
-  liftHeight: 2
-  forwardOffset: 1
-  totalMoveDuration: 0.5
+  useTeleportTarget: 0
+  liftHeight: 1.7
+  forwardOffset: 1.5
+  totalMoveDuration: 0.2
+  forcePower: 20
 --- !u!1 &4009007908221053086
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,9 +157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeleportTo: {fileID: 0}
+  useTeleportTarget: 0
   liftHeight: 2
-  forwardOffset: 1
-  totalMoveDuration: 0.5
+  forwardOffset: 1.5
+  totalMoveDuration: 0.8
+  forcePower: 15
 --- !u!1 &6979440077442840542
 GameObject:
   m_ObjectHideFlags: 0
