@@ -67,6 +67,8 @@ namespace KinematicCharacterController.Examples
         [Header("Wall Jump")]
         public float WallJumpSidewaysForce = 8f;
         public float WallJumpSidewaysDuration = 0.3f;
+        public bool AutoDoubleJumpAfterWallJump = true; // Parameter for auto double jump after wall jump
+        public float AutoJumpUpSpeed = 8f; // New parameter for auto jump up speed
 
         [Header("Misc")]
         public List<Collider> IgnoredColliders = new List<Collider>();
@@ -97,6 +99,9 @@ namespace KinematicCharacterController.Examples
         private Vector3 _wallJumpDirection = Vector3.zero;
         private float _wallJumpSidewaysTimer = 0f;
         private bool _isWallJumping = false;
+        private bool _autoDoubleJumpAfterWallJumpPending = false; // Flag to track pending auto double jump
+        private float _autoDoubleJumpDelay = 0.1f; // Short delay before auto double jump
+        private float _autoDoubleJumpTimer = 0f; // Timer for auto double jump
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
@@ -228,6 +233,42 @@ namespace KinematicCharacterController.Examples
         /// </summary>
         public void BeforeCharacterUpdate(float deltaTime)
         {
+            // Handle auto double jump after wall jump timer
+            if (_autoDoubleJumpAfterWallJumpPending)
+            {
+                _autoDoubleJumpTimer -= deltaTime;
+                if (_autoDoubleJumpTimer <= 0f)
+                {
+                    _autoDoubleJumpAfterWallJumpPending = false;
+                    PerformAutoDoubleJump();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Performs the automatic jump after wall jump regardless of double jump setting
+        /// </summary>
+        private void PerformAutoDoubleJump()
+        {
+            // Removed AllowDoubleJump check to allow auto jump even without double jump enabled
+            if (!Motor.GroundingStatus.IsStableOnGround)
+            {
+                Debug.Log("Performing auto jump after wall jump!");
+                Motor.ForceUnground(0.1f);
+
+                // Apply the auto jump velocity - using AutoJumpUpSpeed which can be different from regular jump
+                Vector3 autoJumpVelocity = (Motor.CharacterUp * AutoJumpUpSpeed) - Vector3.Project(Motor.BaseVelocity, Motor.CharacterUp);
+                
+                // Add some horizontal movement based on current input (reduced for control)
+                autoJumpVelocity += (_moveInputVector * JumpScalableForwardSpeed * 0.5f);
+
+                // Add the velocity directly
+                AddVelocity(autoJumpVelocity);
+                
+                // We don't need to consume double jump if we want this to be independent
+                // If AllowDoubleJump is true, the player can still do a manual double jump after this
+                // _doubleJumpConsumed = true;
+            }
         }
 
         /// <summary>
@@ -366,7 +407,7 @@ namespace KinematicCharacterController.Examples
                         _timeSinceJumpRequested += deltaTime;
                         if (_jumpRequested)
                         {
-                            // Handle double jump
+                            // Handle double jump (manual, not auto)
                             if (AllowDoubleJump)
                             {
                                 if (_jumpConsumed && !_doubleJumpConsumed && (AllowJumpingWhenSliding ? !Motor.GroundingStatus.FoundAnyGround : !Motor.GroundingStatus.IsStableOnGround))
@@ -395,6 +436,15 @@ namespace KinematicCharacterController.Examples
                                     // Start wall jump sideways movement
                                     _isWallJumping = true;
                                     _wallJumpSidewaysTimer = WallJumpSidewaysDuration;
+                                    
+                                    // Set up auto jump after wall jump if enabled
+                                    // Removed AllowDoubleJump check to allow auto jump even without double jump
+                                    if (AutoDoubleJumpAfterWallJump)
+                                    {
+                                        Debug.Log("Setting up auto jump after wall jump!");
+                                        _autoDoubleJumpAfterWallJumpPending = true;
+                                        _autoDoubleJumpTimer = _autoDoubleJumpDelay;
+                                    }
                                 }
                                 else if (Motor.GroundingStatus.FoundAnyGround && !Motor.GroundingStatus.IsStableOnGround)
                                 {
@@ -474,6 +524,7 @@ namespace KinematicCharacterController.Examples
                                 
                                 // Reset wall jumping when landing
                                 _isWallJumping = false;
+                                _autoDoubleJumpAfterWallJumpPending = false;
                             }
                             else
                             {
@@ -579,10 +630,12 @@ namespace KinematicCharacterController.Examples
 
         protected void OnLanded()
         {
+            Debug.Log("Character landed on ground");
         }
 
         protected void OnLeaveStableGround()
         {
+            Debug.Log("Character left stable ground");
         }
 
         public void OnDiscreteCollisionDetected(Collider hitCollider)

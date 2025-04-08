@@ -149,6 +149,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Columns\DummyColumn.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Columns\Standard\ColumnItem.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\7- Orienting towards arbitrary up direction\Scripts\MyCharacterController.cs" />
+    <Compile Include="Assets\Scripts\TriggerParticles.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\b- Double Jumping\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IHeightScalable.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\ILengthScalable.cs" />
