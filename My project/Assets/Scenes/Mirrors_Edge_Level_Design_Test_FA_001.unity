@@ -2216,6 +2216,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6493365208203004783, guid: c8d893a0da5285742ac9cd84d630cd9d, type: 3}
   m_PrefabInstance: {fileID: 248862416}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &258812069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258812070}
+  m_Layer: 0
+  m_Name: Teleport target e1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &258812070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258812069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 48, y: 0, z: -16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &262275704
 Mesh:
   m_ObjectHideFlags: 0
@@ -20854,6 +20885,34 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf11314c52df9f43b7cdf68b65af340, type: 3}
+--- !u!1 &1789799605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1420786606444604052, guid: a153fd5a659efe845b3fb7b16f3e80b7, type: 3}
+  m_PrefabInstance: {fileID: 6616345765103428098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1789799610
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789799605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9895582, z: 0}
 --- !u!43 &1811465236
 Mesh:
   m_ObjectHideFlags: 0
@@ -27002,10 +27061,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 6505057340831361182}
+    - target: {fileID: 8903223327541221470, guid: a153fd5a659efe845b3fb7b16f3e80b7, type: 3}
+      propertyPath: teleportTarget
+      value: 
+      objectReference: {fileID: 258812070}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1420786606444604052, guid: a153fd5a659efe845b3fb7b16f3e80b7, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1789799610}
   m_SourcePrefab: {fileID: 100100000, guid: a153fd5a659efe845b3fb7b16f3e80b7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -27034,6 +27100,7 @@ SceneRoots:
   - {fileID: 2085840942}
   - {fileID: 881281970}
   - {fileID: 1720197043}
+  - {fileID: 258812070}
   - {fileID: 2084569404}
   - {fileID: 1282495532}
   - {fileID: 779342532}

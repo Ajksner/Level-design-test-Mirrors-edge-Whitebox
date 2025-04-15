@@ -3,9 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class EnemyFollower : MonoBehaviour
 {
-    public Transform player;
-    public float detectionRadius = 10f;
-    public float moveSpeed = 3f;
+    public Transform player;            // Odkaz na hráče
+    public float detectionRadius = 10f; // Radius, ve kterém tě nepřítel detekuje
+    public float moveSpeed = 3f;       // Rychlost pohybu nepřítele
+
+    public Transform teleportTarget;   // Cíl, kam bude hráč teleportován, budeš moci vybrat v Unity
 
     private Rigidbody rb;
     private bool isFollowing = false;
@@ -14,7 +16,7 @@ public class EnemyFollower : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
-        rb.isKinematic = false; // důležité!
+        rb.isKinematic = false;
     }
 
     void FixedUpdate()
@@ -28,6 +30,7 @@ public class EnemyFollower : MonoBehaviour
 
         if (isFollowing)
         {
+            // Nepřítel se pohybuje směrem k hráči
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 0;
 
@@ -36,6 +39,21 @@ public class EnemyFollower : MonoBehaviour
 
             if (direction != Vector3.zero)
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 5f * Time.fixedDeltaTime);
+
+            // Pokud nepřítel dosáhne hráče, teleportuje ho
+            if (distanceToPlayer <= 1f) // Když je hráč dostatečně blízko
+            {
+                TeleportPlayer();
+            }
+        }
+    }
+
+    // Funkce pro teleportování hráče na určené místo
+    void TeleportPlayer()
+    {
+        if (teleportTarget != null)
+        {
+            player.position = teleportTarget.position; // Nastaví pozici hráče na cíl teleportu
         }
     }
 
