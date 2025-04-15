@@ -834,6 +834,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeleportTo: {fileID: 1675296445}
+  useTeleportTarget: 1
+  liftHeight: 2
+  totalMoveDuration: 1
+  moveForwardAfterLift: 0
+  forwardMoveDistance: 1
+  forwardMoveDuration: 0.5
+  forcePower: 10
+  forcePushDelay: 0.5
 --- !u!1 &1004713168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,6 +1393,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeleportTo: {fileID: 996359860}
+  useTeleportTarget: 1
+  liftHeight: 2
+  totalMoveDuration: 1
+  moveForwardAfterLift: 0
+  forwardMoveDistance: 1
+  forwardMoveDuration: 0.5
+  forcePower: 10
+  forcePushDelay: 0.5
 --- !u!54 &1675296446
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2160,10 +2176,16 @@ MonoBehaviour:
   AirAccelerationSpeed: 20
   Drag: 1
   AllowJumpingWhenSliding: 1
+  AllowDoubleJump: 0
+  AllowWallJump: 0
   JumpUpSpeed: 12
   JumpScalableForwardSpeed: 0
   JumpPreGroundingGraceTime: 0.1
   JumpPostGroundingGraceTime: 0.1
+  WallJumpSidewaysForce: 8
+  WallJumpSidewaysDuration: 0.3
+  AutoDoubleJumpAfterWallJump: 1
+  AutoJumpUpSpeed: 8
   IgnoredColliders:
   - {fileID: 0}
   - {fileID: 0}
