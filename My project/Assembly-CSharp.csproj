@@ -165,6 +165,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Misc\IRandomizable.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\StandardBoxBuilding.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\Standard\SideItemsCollection.cs" />
+    <Compile Include="Assets\Scripts\DamagePushTrigger.cs" />
     <Compile Include="Assets\KinematicCharacterController\Examples\Scripts\PlanetManager.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\15- Root motion example\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Demo\Scripts\CameraController.cs" />

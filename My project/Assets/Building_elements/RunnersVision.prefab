@@ -69,7 +69,7 @@ MonoBehaviour:
   liftHeight: 3
   forwardDistance: 3
   moveDuration: 0.2
-  upwardForce: 10
+  upwardForce: 12
   forwardForce: 10
   overrideVerticalVelocity: 1
 --- !u!1 &4519154943608873767

@@ -807,7 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TeleportTo: {fileID: 0}
   useTeleportTarget: 0
-  liftHeight: 1.5
+  liftHeight: 1.6
   totalMoveDuration: 0.2
   moveForwardAfterLift: 1
   forwardMoveDistance: 0.5

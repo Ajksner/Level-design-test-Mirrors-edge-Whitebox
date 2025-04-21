@@ -483,6 +483,7 @@
 "Assets/ModularBuildingsFramework/Scripts/Misc/IRequired.cs"
 "Assets/ModularBuildingsFramework/Scripts/Misc/IValidable.cs"
 "Assets/Scripts/ChangeMaterialOnTrigger.cs"
+"Assets/Scripts/DamagePushTrigger.cs"
 "Assets/Scripts/DoorController.cs"
 "Assets/Scripts/EnemyFollower.cs"
 "Assets/Scripts/JumpPad.cs"
