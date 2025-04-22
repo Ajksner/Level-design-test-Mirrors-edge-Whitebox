@@ -489,6 +489,8 @@
 "Assets/Scripts/JumpPad.cs"
 "Assets/Scripts/KinematicLedgeGrab.cs"
 "Assets/Scripts/LadderMover.cs"
+"Assets/Scripts/MultiSpawner.cs"
+"Assets/Scripts/PoleSwingMechanic.cs"
 "Assets/Scripts/SmoothLadderMove.cs"
 "Assets/Scripts/TriggerParticles.cs"
 "Assets/_Barking_Dog/Common Scripts/MouseLook.cs"

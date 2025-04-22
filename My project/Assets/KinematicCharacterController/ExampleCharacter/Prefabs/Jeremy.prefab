@@ -115,9 +115,9 @@ MonoBehaviour:
   AllowDoubleJump: 0
   AllowWallJump: 1
   JumpUpSpeed: 13
-  JumpScalableForwardSpeed: 0.5
-  JumpPreGroundingGraceTime: 0.5
-  JumpPostGroundingGraceTime: 0.5
+  JumpScalableForwardSpeed: 5
+  JumpPreGroundingGraceTime: 0.1
+  JumpPostGroundingGraceTime: 0.1
   WallJumpSidewaysForce: 0.7
   WallJumpSidewaysDuration: 0.1
   AutoDoubleJumpAfterWallJump: 1
@@ -147,7 +147,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -175,19 +175,19 @@ MonoBehaviour:
   CapsuleHeight: 2.5
   CapsuleYOffset: 1
   CapsulePhysicsMaterial: {fileID: 0}
-  GroundDetectionExtraDistance: 0
+  GroundDetectionExtraDistance: 2
   MaxStableSlopeAngle: 60
   StableGroundLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  DiscreteCollisionEvents: 0
+  DiscreteCollisionEvents: 1
   StepHandling: 2
   MaxStepHeight: 0.5
   AllowSteppingWithoutStableGrounding: 0
   MinRequiredStepDepth: 0
   LedgeAndDenivelationHandling: 1
-  MaxStableDistanceFromLedge: 0
-  MaxVelocityForLedgeSnap: 0
+  MaxStableDistanceFromLedge: 0.4
+  MaxVelocityForLedgeSnap: 1
   MaxStableDenivelationAngle: 180
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 1

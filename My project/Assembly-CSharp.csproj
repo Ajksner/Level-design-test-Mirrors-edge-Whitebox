@@ -94,6 +94,7 @@
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Lines\Standard\LineItem.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\Drafts\BoxDraft.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxBuildings\DummyBoxBuilder.cs" />
+    <Compile Include="Assets\Scripts\PoleSwingMechanic.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\5- Adding velocities and impulses\Scripts\MyCharacterController.cs" />
     <Compile Include="Assets\Scripts\JumpPad.cs" />
     <Compile Include="Assets\ModularBuildingsFramework\Scripts\BoxRoofs\StandardFlatBoxRoof.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Assets\KinematicCharacterController\Core\KinematicCharacterSystem.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\3- Jumping\Scripts\c- Wall Jumping\MyPlayer.cs" />
     <Compile Include="Assets\KinematicCharacterController\Walkthrough\8- Creating a moving platform\Scripts\MyMovingPlatform.cs" />
+    <Compile Include="Assets\Scripts\MultiSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Jeremy\Docs\MaleCharacterAnimation.txt" />

@@ -137,8 +137,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.1078637, y: 2, z: 2}
-  m_Center: {x: 2.2868915, y: 0, z: 0}
+  m_Size: {x: 19.80092, y: 2, z: 2}
+  m_Center: {x: 10.633416, y: 0, z: 0}
 --- !u!114 &9159114978470762119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPivot: {fileID: 2947662197340369940}
   openAngle: 90
-  openSpeed: 10
+  openSpeed: 15
   closeOnExit: 1
   openOnce: 0
 --- !u!65 &3298747340030897963
